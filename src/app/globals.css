@@ -1,27 +1,90 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-ccf-bg: #fafafa;
+  --color-ccf-fg: #111111;
+  --color-ccf-secondary: #484848;
+  --color-ccf-muted: #999999;
+  --color-ccf-border: #e5e5e5;
+  --color-ccf-surface: #ffffff;
+  --color-ccf-accent: #d4782f;
+  --color-ccf-accent-hover: #bf6823;
+  --color-ccf-accent-dim: rgb(212 120 47 / 0.07);
+  --color-ccf-accent-dim-strong: rgb(212 120 47 / 0.13);
+
+  --font-sans: "Cabinet Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-ccf-bg text-ccf-fg font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-ccf-accent-dim-strong text-ccf-fg;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Hero wordmark clip-path reveal (CSS only) */
+@keyframes hero-clip-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.hero-wordmark-clip {
+  animation: hero-clip-reveal 1s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-wordmark-clip {
+    animation: none;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Circuit line draw */
+@keyframes circuit-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes circuit-node-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.circuit-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: circuit-draw 1.4s ease-out forwards;
+}
+
+.circuit-node {
+  opacity: 0;
+  animation: circuit-node-in 0.5s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circuit-line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .circuit-node {
+    animation: none;
+    opacity: 1;
   }
 }
