@@ -44,7 +44,7 @@ export function JoinCTA() {
   }
 
   return (
-    <section className="px-5 py-28 md:px-10 md:py-40">
+    <section id="why" className="scroll-mt-24 px-5 py-28 md:px-10 md:py-40">
       <motion.div
         className="mx-auto flex max-w-3xl flex-col items-center text-center"
         initial="hidden"

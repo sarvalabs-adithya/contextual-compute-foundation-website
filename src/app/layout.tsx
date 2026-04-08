@@ -46,7 +46,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1,700,400&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1,300,400,500,700&display=swap"
         />
       </head>
       <body className="min-h-dvh font-sans">{children}</body>
