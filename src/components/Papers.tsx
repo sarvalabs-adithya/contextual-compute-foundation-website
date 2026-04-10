@@ -12,14 +12,15 @@ const papers = [
       "Why the purpose of computation must be human happiness — the philosophical foundation of the series.",
     href: "/docs/CC0.pdf",
     external: true,
+    year: "2018",
   },
   {
     index: "02",
     tag: "CC1",
     title: "On the Truth of Value",
     description: "Why value and information are categorically different, and why that difference changes everything.",
-    href: "#",
-    external: false,
+    year: "2018",
+    locked: true,
   },
   {
     index: "03",
@@ -28,30 +29,31 @@ const papers = [
     description: "The mathematical proof that value cannot be computed on information machines without destruction.",
     href: "/docs/CC2.pdf",
     external: true,
+    year: "2024",
   },
   {
     index: "04",
     tag: "CC3",
     title: "On the Truth of Computation",
     description: "Introducing the K-Machine — the general theory of computation with WHO as the fourth dimension.",
-    href: "/docs/CC3.pdf",
-    external: true,
+    year: "2021",
+    locked: true,
   },
   {
     index: "05",
     tag: "CC4",
     title: "On the Truth of Interaction",
     description: "The operational semantics of participant-indexed computation — how WHO interacts, formally.",
-    href: "/docs/CC4.pdf",
-    external: true,
+    year: "2022",
+    locked: true,
   },
   {
     index: "06",
     tag: "CC5",
     title: "On the Design of Value",
     description: "The normative specification — what any system must implement to compute over value correctly.",
-    href: "/docs/CC5.pdf",
-    external: true,
+    year: "2023",
+    locked: true,
   },
 ] as const;
 
@@ -74,7 +76,12 @@ export function Papers() {
           variants={fade}
           transition={{ duration: reduce ? 0 : 0.7, ease: "easeOut" }}
         >
-          <h2 className="text-3xl font-bold tracking-tight text-ccf-fg md:text-4xl">Published research</h2>
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight text-ccf-fg md:text-4xl">Published research</h2>
+            <p className="mt-2 max-w-[480px] font-sans text-[0.78rem] font-light leading-[1.5] text-ccf-muted">
+              Published by Sarva Labs. Hosted by CCF as part of the Contextual Compute Publication Program.
+            </p>
+          </div>
           <p className="font-mono text-sm text-ccf-secondary md:text-base">6 papers</p>
         </motion.div>
 
@@ -103,8 +110,10 @@ export function Papers() {
                 title={p.title}
                 tag={p.tag}
                 description={p.description}
-                href={p.href}
-                external={p.external}
+                href={"href" in p ? p.href : undefined}
+                external={"external" in p ? p.external : undefined}
+                year={"year" in p ? p.year : undefined}
+                locked={"locked" in p ? p.locked : undefined}
               />
             </motion.div>
           ))}

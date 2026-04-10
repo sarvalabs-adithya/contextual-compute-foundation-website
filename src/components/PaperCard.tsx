@@ -8,19 +8,24 @@ type PaperCardProps = {
   title: string;
   tag: string;
   description: string;
-  href: string;
+  href?: string;
   external?: boolean;
+  year?: string;
+  locked?: boolean;
 };
 
-export function PaperCard({ index, title, tag, description, href, external }: PaperCardProps) {
+export function PaperCard({ index, title, tag, description, href, external, year, locked }: PaperCardProps) {
   const [titleHover, setTitleHover] = useState(false);
   const [linkFocus, setLinkFocus] = useState(false);
   const displayTitle = useTextScramble(title, titleHover || linkFocus);
 
-  const isExternal = external ?? (href.startsWith("http") || href.startsWith("//"));
+  const isExternal = !locked && (external ?? (href?.startsWith("http") || href?.startsWith("//")));
 
-  const className =
-    "paper-card group relative block overflow-hidden rounded-xl border border-ccf-border bg-ccf-surface p-6 outline-none transition-transform duration-300 ease-out active:scale-[0.985] md:p-8 focus-visible:ring-2 focus-visible:ring-ccf-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ccf-bg";
+  const baseClass =
+    "paper-card group relative block overflow-hidden rounded-xl border border-ccf-border bg-ccf-surface p-6 outline-none transition-transform duration-300 ease-out md:p-8";
+
+  const linkClass = `${baseClass} active:scale-[0.985] focus-visible:ring-2 focus-visible:ring-ccf-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ccf-bg`;
+  const lockedClass = `${baseClass} cursor-default`;
 
   const inner = (
     <>
@@ -46,15 +51,34 @@ export function PaperCard({ index, title, tag, description, href, external }: Pa
       <p className="relative z-[1] mt-3 font-sans text-sm font-light leading-relaxed text-ccf-secondary md:text-[0.9375rem]">
         {description}
       </p>
-      <p className="relative z-[1] mt-3 font-mono text-xs uppercase tracking-widest text-ccf-muted">Paper · 2024</p>
-      <span
-        className="mt-6 inline-flex translate-x-1 items-center gap-1 font-mono text-sm text-ccf-accent opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100"
-        aria-hidden
-      >
-        {isExternal ? "Open ↗" : "View →"}
-      </span>
+      <p className="relative z-[1] mt-3 font-mono text-xs uppercase tracking-widest text-ccf-muted">Paper · {year ?? "2024"}</p>
+
+      {locked ? (
+        <a
+          href="mailto:info@sarva.ai"
+          className="relative z-[1] mt-6 inline-flex items-center gap-1 font-mono text-[0.58rem] text-ccf-muted transition-colors duration-200 ease-out hover:text-ccf-accent"
+          onClick={(e) => e.stopPropagation()}
+        >
+          Contact us →
+        </a>
+      ) : (
+        <span
+          className="mt-6 inline-flex translate-x-1 items-center gap-1 font-mono text-sm text-ccf-accent opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100"
+          aria-hidden
+        >
+          {isExternal ? "Open ↗" : "View →"}
+        </span>
+      )}
     </>
   );
+
+  if (locked) {
+    return (
+      <div className={lockedClass}>
+        {inner}
+      </div>
+    );
+  }
 
   if (isExternal) {
     return (
@@ -62,7 +86,7 @@ export function PaperCard({ index, title, tag, description, href, external }: Pa
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={className}
+        className={linkClass}
         onFocus={() => setLinkFocus(true)}
         onBlur={() => setLinkFocus(false)}
       >
@@ -74,7 +98,7 @@ export function PaperCard({ index, title, tag, description, href, external }: Pa
   return (
     <a
       href={href}
-      className={className}
+      className={linkClass}
       onFocus={() => setLinkFocus(true)}
       onBlur={() => setLinkFocus(false)}
     >

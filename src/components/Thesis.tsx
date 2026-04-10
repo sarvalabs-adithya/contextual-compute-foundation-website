@@ -29,6 +29,9 @@ export function Thesis() {
             30 degrees in New York is context, information. I am cold in New York is participant Context, value.
             Classical compute supports the former. Contextual Compute enables the latter.
           </blockquote>
+          <blockquote className="mt-6 border-t border-ccf-border pt-6 font-sans text-[1.05rem] italic leading-relaxed text-ccf-secondary">
+            It&apos;s all value. Absence of participant makes it information.
+          </blockquote>
         </motion.div>
 
         <motion.div

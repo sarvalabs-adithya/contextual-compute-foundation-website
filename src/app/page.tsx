@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Thesis } from "@/components/Thesis";
 import { Papers } from "@/components/Papers";
+import { InterstitialQuote } from "@/components/InterstitialQuote";
 import { JoinCTA } from "@/components/JoinCTA";
 import { Footer } from "@/components/Footer";
 
@@ -13,6 +14,7 @@ export default function Home() {
         <Hero />
         <Thesis />
         <Papers />
+        <InterstitialQuote />
         <JoinCTA />
       </main>
       <Footer />

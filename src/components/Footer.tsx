@@ -20,7 +20,7 @@ export function Footer() {
               Contextual Compute Foundation
             </p>
             <p className="mt-3 max-w-[260px] font-sans text-[0.78rem] font-light leading-relaxed text-ccf-secondary">
-              Producing and stewarding the core theory behind participant-centric distributed systems.
+              Producing and stewarding the core theory behind participant-centric computation.
             </p>
           </div>
 
@@ -38,11 +38,6 @@ export function Footer() {
                   The Thesis
                 </a>
               </li>
-              <li>
-                <a href="#why" className={bodyLinkClass}>
-                  Why Different
-                </a>
-              </li>
             </ul>
           </nav>
 
@@ -58,6 +53,26 @@ export function Footer() {
                   className={bodyLinkClass}
                 >
                   MOI Protocol
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://zenz.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={bodyLinkClass}
+                >
+                  ZenZ
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://xoog.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={bodyLinkClass}
+                >
+                  Xoog
                 </a>
               </li>
             </ul>
@@ -88,7 +103,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:admin@contextualcompute.org" className={bodyLinkClass}>
+                <a href="mailto:info@sarva.ai" className={bodyLinkClass}>
                   Email
                 </a>
               </li>
@@ -111,6 +126,9 @@ export function Footer() {
             </a>
           </div>
         </div>
+        <p className="mx-auto max-w-6xl px-5 pb-6 font-mono text-[0.5rem] font-light leading-relaxed text-ccf-muted/60 md:px-10">
+          Contextual Compute is a paradigm invented and patented by Sarva Labs Inc.
+        </p>
       </div>
     </footer>
   );
