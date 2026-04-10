@@ -64,9 +64,9 @@ export function HeroCanvas() {
 
       // Centered positions
       const words = [
-        { text: "WHAT", sub: "Logic", x: W * 0.2 },
+        { text: "WHAT", sub: "Content", x: W * 0.2 },
         { text: "WHERE", sub: "Storage", x: W * 0.37 },
-        { text: "HOW", sub: "Process", x: W * 0.54 },
+        { text: "HOW", sub: "Logic", x: W * 0.54 },
       ];
       const platX0 = W * 0.12;
       const platX1 = W * 0.62;
@@ -113,8 +113,8 @@ export function HeroCanvas() {
         const w = words[i];
 
         ctx.textBaseline = "bottom";
-        ctx.font = `500 28px ${FONT_SANS}`;
-        ctx.fillStyle = `rgba(17,17,17,${0.75 * globalAlpha})`;
+        ctx.font = `700 28px ${FONT_SANS}`;
+        ctx.fillStyle = `rgba(17,17,17,${0.9 * globalAlpha})`;
         ctx.fillText(w.text, w.x, platY - 10);
 
         ctx.textBaseline = "top";
@@ -140,7 +140,7 @@ export function HeroCanvas() {
         ctx.textAlign = "center";
         ctx.textBaseline = "bottom";
         ctx.font = `700 34px ${FONT_SANS}`;
-        ctx.fillStyle = `rgba(212,120,47,${whoAlpha * globalAlpha})`;
+        ctx.fillStyle = `rgba(212,120,47,${whoAlpha * 0.95 * globalAlpha})`;
         ctx.fillText("WHO", whoX, drawY - 10);
 
         // Dot + sub-label when on platform

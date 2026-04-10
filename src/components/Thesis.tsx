@@ -11,7 +11,7 @@ export function Thesis() {
   const reduce = useReducedMotion() === true;
 
   return (
-    <section id="context" className="scroll-mt-24 px-5 py-24 md:px-10 md:py-32">
+    <section id="thesis" className="scroll-mt-24 px-5 py-24 md:px-10 md:py-32">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
         <motion.div
           initial="hidden"

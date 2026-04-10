@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 
 const links = [
-  { href: "#context", label: "Context" },
+  { href: "#thesis", label: "Thesis" },
   { href: "#papers", label: "Papers" },
 ] as const;
 

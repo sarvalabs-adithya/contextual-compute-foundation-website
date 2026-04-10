@@ -34,7 +34,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#context" className={bodyLinkClass}>
+                <a href="#thesis" className={bodyLinkClass}>
                   The Thesis
                 </a>
               </li>
