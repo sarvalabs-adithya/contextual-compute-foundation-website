@@ -65,7 +65,7 @@ export function HeroCanvas() {
       // Centered positions
       const words = [
         { text: "WHAT", sub: "Content", x: W * 0.2 },
-        { text: "WHERE", sub: "Storage", x: W * 0.37 },
+        { text: "WHERE", sub: "Memory", x: W * 0.37 },
         { text: "HOW", sub: "Logic", x: W * 0.54 },
       ];
       const platX0 = W * 0.12;

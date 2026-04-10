@@ -1,5 +1,3 @@
-import { SOCIAL_X } from "@/lib/site";
-
 const colTitleClass =
   "mb-5 font-mono text-[0.55rem] font-medium uppercase tracking-[0.1em] text-ccf-muted";
 
@@ -84,16 +82,6 @@ export function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href={SOCIAL_X}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={bodyLinkClass}
-                >
-                  X / Twitter
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://open.spotify.com/show/3aYeUGPjnZveQYR3UzdpPT"
                   target="_blank"
                   rel="noopener"
@@ -114,8 +102,8 @@ export function Footer() {
 
       <div className="border-t border-ccf-border-light">
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-4 px-5 py-6 md:flex-row md:items-center md:justify-between md:px-10">
-          <p className="font-mono text-[0.58rem] font-normal leading-relaxed text-ccf-muted">
-            © 2026 Contextual Compute Foundation. All rights reserved.
+          <p className="font-mono text-[0.5rem] font-light leading-relaxed text-ccf-muted/60">
+            Contextual Compute is a paradigm invented and patented by Sarva Labs Inc.
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <a href="#" className={bottomLinkClass}>
@@ -126,9 +114,6 @@ export function Footer() {
             </a>
           </div>
         </div>
-        <p className="mx-auto max-w-6xl px-5 pb-6 font-mono text-[0.5rem] font-light leading-relaxed text-ccf-muted/60 md:px-10">
-          Contextual Compute is a paradigm invented and patented by Sarva Labs Inc.
-        </p>
       </div>
     </footer>
   );

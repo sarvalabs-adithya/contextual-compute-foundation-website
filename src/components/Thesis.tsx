@@ -30,7 +30,7 @@ export function Thesis() {
             Classical compute supports the former. Contextual Compute enables the latter.
           </blockquote>
           <blockquote className="mt-6 border-t border-ccf-border pt-6 font-sans text-[1.05rem] italic leading-relaxed text-ccf-secondary">
-            It&apos;s all value. Absence of participant makes it information.
+            &quot;It&apos;s all value. Absence of participant makes it information.&quot;
           </blockquote>
         </motion.div>
 

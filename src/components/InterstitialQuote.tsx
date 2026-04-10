@@ -25,8 +25,8 @@ export function InterstitialQuote() {
           aria-hidden
         />
         <p className="font-sans text-[clamp(1.1rem,2vw,1.35rem)] italic leading-[1.6] text-[#2A2A2A]">
-          You are no longer a row in a database, a wallet in a contract, or a profile in an app.
-          You have independent existence. This is what the digitally interacting world requires.
+          &quot;You are no longer a row in a database, a wallet in a contract, or a profile in an app. You have
+          independent existence. This is what the digitally interacting world requires.&quot;
         </p>
       </motion.div>
     </section>
