@@ -78,6 +78,16 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a
+                  href="https://open.spotify.com/show/3aYeUGPjnZveQYR3UzdpPT"
+                  target="_blank"
+                  rel="noopener"
+                  className={bodyLinkClass}
+                >
+                  Humanised ↗
+                </a>
+              </li>
+              <li>
                 <a href="mailto:admin@contextualcompute.org" className={bodyLinkClass}>
                   Email
                 </a>

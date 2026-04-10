@@ -7,11 +7,12 @@ type PaperCardProps = {
   index: string;
   title: string;
   tag: string;
+  description: string;
   href: string;
   external?: boolean;
 };
 
-export function PaperCard({ index, title, tag, href, external }: PaperCardProps) {
+export function PaperCard({ index, title, tag, description, href, external }: PaperCardProps) {
   const [titleHover, setTitleHover] = useState(false);
   const [linkFocus, setLinkFocus] = useState(false);
   const displayTitle = useTextScramble(title, titleHover || linkFocus);
@@ -19,7 +20,7 @@ export function PaperCard({ index, title, tag, href, external }: PaperCardProps)
   const isExternal = external ?? (href.startsWith("http") || href.startsWith("//"));
 
   const className =
-    "group relative block overflow-hidden rounded-xl border border-ccf-border bg-ccf-surface p-6 outline-none transition-transform duration-300 ease-out active:scale-[0.985] md:p-8 focus-visible:ring-2 focus-visible:ring-ccf-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ccf-bg";
+    "paper-card group relative block overflow-hidden rounded-xl border border-ccf-border bg-ccf-surface p-6 outline-none transition-transform duration-300 ease-out active:scale-[0.985] md:p-8 focus-visible:ring-2 focus-visible:ring-ccf-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ccf-bg";
 
   const inner = (
     <>
@@ -42,6 +43,10 @@ export function PaperCard({ index, title, tag, href, external }: PaperCardProps)
           {displayTitle}
         </span>
       </h3>
+      <p className="relative z-[1] mt-3 font-sans text-sm font-light leading-relaxed text-ccf-secondary md:text-[0.9375rem]">
+        {description}
+      </p>
+      <p className="relative z-[1] mt-3 font-mono text-xs uppercase tracking-widest text-ccf-muted">Paper · 2024</p>
       <span
         className="mt-6 inline-flex translate-x-1 items-center gap-1 font-mono text-sm text-ccf-accent opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100"
         aria-hidden

@@ -5,46 +5,53 @@ import { PaperCard } from "@/components/PaperCard";
 
 const papers = [
   {
-    index: "CC0",
+    index: "01",
+    tag: "CC0",
     title: "On the Truth of Happiness",
-    tag: "Vision",
-    href: "https://papers.moi.technology/docs/on-the-truth-of-happiness",
+    description:
+      "Why the purpose of computation must be human happiness — the philosophical foundation of the series.",
+    href: "/docs/CC0.pdf",
     external: true,
   },
   {
-    index: "CC1",
+    index: "02",
+    tag: "CC1",
     title: "On the Truth of Value",
-    tag: "Concept",
+    description: "Why value and information are categorically different, and why that difference changes everything.",
     href: "#",
     external: false,
   },
   {
-    index: "CC2",
-    title: "On the Truth of Structure of Value",
-    tag: "Math",
-    href: "#",
-    external: false,
+    index: "03",
+    tag: "CC2",
+    title: "On the Structure of Value",
+    description: "The mathematical proof that value cannot be computed on information machines without destruction.",
+    href: "/docs/CC2.pdf",
+    external: true,
   },
   {
-    index: "CC3",
-    title: "On the Truth of Compute",
-    tag: "CC",
-    href: "#",
-    external: false,
+    index: "04",
+    tag: "CC3",
+    title: "On the Truth of Computation",
+    description: "Introducing the K-Machine — the general theory of computation with WHO as the fourth dimension.",
+    href: "/docs/CC3.pdf",
+    external: true,
   },
   {
-    index: "CC4",
+    index: "05",
+    tag: "CC4",
     title: "On the Truth of Interaction",
-    tag: "PIC Semantics",
-    href: "#",
-    external: false,
+    description: "The operational semantics of participant-indexed computation — how WHO interacts, formally.",
+    href: "/docs/CC4.pdf",
+    external: true,
   },
   {
-    index: "CC5",
+    index: "06",
+    tag: "CC5",
     title: "On the Design of Value",
-    tag: "CC Protocol Spec",
-    href: "#",
-    external: false,
+    description: "The normative specification — what any system must implement to compute over value correctly.",
+    href: "/docs/CC5.pdf",
+    external: true,
   },
 ] as const;
 
@@ -72,7 +79,7 @@ export function Papers() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6"
+          className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
@@ -87,12 +94,18 @@ export function Papers() {
         >
           {papers.map((p) => (
             <motion.div
-              key={p.index}
+              key={`${p.index}-${p.tag}`}
               variants={fade}
               transition={{ duration: reduce ? 0 : 0.7, ease: "easeOut" }}
-              
             >
-              <PaperCard index={p.index} title={p.title} tag={p.tag} href={p.href} external={p.external} />
+              <PaperCard
+                index={p.index}
+                title={p.title}
+                tag={p.tag}
+                description={p.description}
+                href={p.href}
+                external={p.external}
+              />
             </motion.div>
           ))}
         </motion.div>
